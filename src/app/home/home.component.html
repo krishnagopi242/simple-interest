@@ -1,50 +1,67 @@
 <div class="container">
   <form [formGroup]="interestForm" (ngSubmit)="onSubmit()">
-    <div class="display-output">
-      <pre>
-      Actual Amount: {{ principalAmount.value ? principalAmount?.value : '-' }}
-      Interest: {{ simpleINT }}
-      Total: {{ simpleINT + principalAmount?.value }}
-    </pre
-      >
+    <div class="display-output" *ngIf="isSubmitClicked">
+      <div class="mb-1">Actual Amount: {{ principalAmount.value ? principalAmount?.value : '-' }}</div>
+      <div class="mb-1">Interest: {{ simpleINT }}</div>
+      <div class="mb-1">Total: {{ simpleINT + principalAmount?.value }}</div>
+      <div>Total Duration: {{ months }} Day(s)</div>
     </div>
     <div>
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width wid-240" appearance="fill">
         <mat-label>Principal Amount</mat-label>
-        <input matInput formControlName="principalAmount" type="number" placeholder="Enter Principal Amount " />
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="principalAmount"
+          type="number"
+          placeholder="Enter Principal Amount "
+        />
       </mat-form-field>
     </div>
 
     <div>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="wid-240">
         <mat-label>Enter Start Date</mat-label>
-        <input matInput formControlName="startDate" [matDatepicker]="picker" />
-        <mat-hint>MM/DD/YYYY</mat-hint>
+        <input
+          autocomplete="off"
+          matInput
+          formControlName="startDate"
+          [matDatepicker]="picker"
+          name="startDateDatePicker"
+        />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
 
     <div>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="wid-240">
         <mat-label>Enter End Date</mat-label>
-        <input matInput formControlName="endDate" [matDatepicker]="picker1" />
-        <mat-hint>MM/DD/YYYY</mat-hint>
+        <input
+          autocomplete="off"
+          matInput
+          formControlName="endDate"
+          [matDatepicker]="picker1"
+          name="endDateDatePicker"
+        />
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
     </div>
 
     <div>
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width wid-240" appearance="fill">
         <mat-label>Interest Rate</mat-label>
-        <input matInput formControlName="interestAmount" type="number" placeholder="Enter Interest Rate " />
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="interestAmount"
+          type="number"
+          placeholder="Enter Interest Rate "
+        />
       </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary">Primary</button>
-    <div class="display-big">
-      Your {{ principalAmount?.value }} + {{ simpleINT }} = {{ simpleINT + principalAmount?.value }}
-    </div>
+    <button mat-raised-button color="primary" [disabled]="!interestForm.valid">Calculate</button>
   </form>
 </div>

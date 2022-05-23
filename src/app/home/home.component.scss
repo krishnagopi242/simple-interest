@@ -3,18 +3,26 @@
   padding: 1em;
 }
 
-.logo {
-  width: 150px;
-  margin: 0 auto;
-}
-
-q {
-  font-style: italic;
-  quotes: "« " " »";
-}
-
 .display-big {
   margin-top: 5%;
   font-size: 50px;
   font-weight: bold;
+}
+
+.display-output {
+  font-size: 22px;
+  color: #fff;
+  background: #3f51b5;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+  flex-direction: column;
+  padding: 1%;
+}
+.mb-1 {
+  margin-bottom: 1%;
+}
+
+.wid-240 {
+  width: 240px;
 }

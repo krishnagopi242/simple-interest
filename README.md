@@ -1,3 +1,9 @@
+## Publishing to GIT
+
+1. npm run build
+2. npx angular-cli-ghpages --dir=dist
+3. https://krishnagopi242.github.io/simple-interest/home ---> URL to navigate
+
 # SimpleInterestCalc
 
 This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)

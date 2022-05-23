@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "build": "npm run write:env -s && ng build",
+    "build": "npm run write:env -s && ng build --base-href https://krishnagopi242.github.io/simple-interest/",
     "start": "npm run write:env -s && ng serve --proxy-config proxy.conf.js",
     "lint": "ng lint && stylelint \"src/**/*.scss\"",
     "test": "npm run write:env -s && ng test",
@@ -38,7 +38,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.1.0",
+    "@angular-devkit/build-angular": "^13.3.6",
     "@angular-eslint/builder": "~13.0.1",
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",

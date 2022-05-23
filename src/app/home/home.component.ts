@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   quote: string | undefined;
   isLoading = false;
   simpleINT = 0;
+  months = 0;
+  isSubmitClicked = false;
   interestForm = this.fb.group({
     principalAmount: ['', Validators.required],
     startDate: ['', Validators.required],
@@ -27,15 +29,13 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('principalAmount', this.principalAmount?.value);
-    console.log('startDate', this.startDate?.value);
-    console.log('endDate', this.endDate?.value);
+    this.isSubmitClicked = true;
     let firstDate = moment(this.startDate?.value, 'YYYY-MM-DD'); //Create date using string-format constructor
     let secondDate = moment(this.endDate?.value, 'YYYY-MM-DD');
     let duration = moment.duration(secondDate.diff(firstDate));
     let months = duration.asMonths();
-
-    this.simpleINT = (this.principalAmount?.value * Math.round(months) * this.interestAmount?.value) / 100;
+    this.months = duration.asDays();
+    this.simpleINT = Math.round((this.principalAmount?.value * months * this.interestAmount?.value) / 100);
     console.log(this.simpleINT);
   }
 
